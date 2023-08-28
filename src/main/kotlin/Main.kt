@@ -41,7 +41,7 @@ fun main(args: Array<String>) {
             }
         """.trimIndent()
         val contentType: ContentType = ContentType.Application.Json
-        val host = "192.168.95.101"
+        val host = "127.0.0.1"
         val response = client.request {
             url(scheme = "http", host = host, port = 11000, path = "/v1/account/authenticateorcreatev2")
             method = HttpMethod.Post
@@ -72,7 +72,7 @@ fun main(args: Array<String>) {
 
 fun prepareRequest(): HttpRequestBuilder.() -> Unit = {
     method = HttpMethod.Get
-    url("ws", "192.168.95.101", 10000, "/v1/rpc")
+    url("ws", "127.0.0.1", 10000, "/v1/rpc")
 
     buildHeaders {
         header(HttpHeaders.Accept, "application/json")
